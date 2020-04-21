@@ -36,7 +36,6 @@ void printPyramid(void)
         printHash(a + 1);
         printSpace();
         printHash(a + 1);
-        printBlank(height - 1 - a);
         printf("\n"); 
     }
 }
