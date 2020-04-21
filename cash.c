@@ -22,6 +22,7 @@ int main(void)
         owedF = get_float("Change owed: ");
     }
     while (owedF < 0);
+    owedF += 0.001;
     owedI = owedF * 100;
 
     // Custom function that does the greedy algorithm ;)
@@ -41,22 +42,22 @@ void greedy(void)
         if (owedI >= quarter)
         {
             coins++;
-            owedI-=quarter;
+            owedI -= quarter;
         }
         else if (owedI >= dime)
         {
             coins++;
-            owedI-=dime;
+            owedI -= dime;
         }
         else if (owedI >= nickel)
         {
             coins++;
-            owedI-=nickel;
+            owedI -= nickel;
         }
         else
         {
             coins++;
-            owedI-=penny;
+            owedI -= penny;
         }
     }
 }
