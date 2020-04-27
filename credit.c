@@ -21,6 +21,8 @@ int main(void)
         else
         {
             correctDigits = false;
+            printf("INVALID\n");
+            return 0;
         }
     }
     while (correctDigits == false || cardNumber < 0);
