@@ -26,8 +26,8 @@ int main(void)
         }
     }
     while (correctDigits == false || cardNumber < 0);
-    
-    // Gets the digit from the card number 
+
+    // Gets the digit from the card number
     int dig1 = cardNumber % 10;
     int dig2 = cardNumber % 100 / 10;
     int dig3 = cardNumber % 1000 / 100;
@@ -110,6 +110,11 @@ int main(void)
     {
         correctLuhn = true;
     }
+    else
+    {
+        print("INVALID\n");
+        return 0
+    }
 
     // Tells what type of card
     if (nDigits == 16)
@@ -135,9 +140,4 @@ int main(void)
         printf("VISA\n");
         return 0;
     }
-    else
-    {
-        printf("INVALID\n");
-        return 0;
-    }
-} 
+}
