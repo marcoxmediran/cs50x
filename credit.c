@@ -110,15 +110,6 @@ int main(void)
     {
         correctLuhn = true;
     }
-    if (correctLuhn == true)
-    {
-
-    }
-    else
-    {
-        printf("INVALID\n");
-        return 0;
-    }
 
     // Tells what type of card
     if (nDigits == 16)
@@ -142,6 +133,11 @@ int main(void)
     if (nDigits == 13 && dig13 == 4)
     {
         printf("VISA\n");
+        return 0;
+    }
+    else
+    {
+        printf("INVALID\n");
         return 0;
     }
 } 
