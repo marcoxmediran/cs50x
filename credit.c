@@ -140,4 +140,8 @@ int main(void)
         printf("VISA\n");
         return 0;
     }
+    else
+    {
+        printf("INVALID\n");
+    }
 }
