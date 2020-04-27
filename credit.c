@@ -112,8 +112,8 @@ int main(void)
     }
     else
     {
-        print("INVALID\n");
-        return 0
+        printf("INVALID\n");
+        return 0;
     }
 
     // Tells what type of card
