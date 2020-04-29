@@ -47,7 +47,7 @@ int main(void)
     // Prints output
     if (indexFinal < 1)
     {
-        printf("Below Grade 1\n");
+        printf("Before Grade 1\n");
         return 0;
     }
     else if (indexFinal >= 1 && indexFinal <= 16)
