@@ -12,7 +12,7 @@ int key;
 // Custom Functions
 string getText(void);
 string caesarMessage(string text);
-int errorMessage(void);
+void errorMessage(void);
 
 // Main Function
 int main(int argc, string argv[])
@@ -24,7 +24,7 @@ int main(int argc, string argv[])
             if (isalpha(argv[1][i]))
             {
                 errorMessage();
-                return 0;
+                return 1;
             }
             else if (isdigit(argv[1][i]))
             {
@@ -35,6 +35,7 @@ int main(int argc, string argv[])
     else
     {
         errorMessage();
+        return 1;
     }
 
     // Prompts for text
@@ -86,8 +87,7 @@ string caesarMessage(string text)
 }
 
 // Prints error/usage hint
-int errorMessage(void)
+void errorMessage(void)
 {
     printf("Usage: ./caesar key\n");
-    return 1;
 }
