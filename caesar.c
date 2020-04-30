@@ -44,7 +44,7 @@ int main(int argc, string argv[])
     // Enciphers the text
     caesarMessage(plainText);
     // Prints the Enciphered text
-    printf("Cipher text: %s\n", plainText);
+    printf("ciphertext: %s\n", plainText);
 
     // Tells that the program ran successfully
     return 0;
@@ -55,7 +55,7 @@ string getText(void)
 {
     do
     {
-        plainText = get_string("Plain Text: ");
+        plainText = get_string("plaintext: ");
     }
     while (strlen(plainText) < 1);
 
