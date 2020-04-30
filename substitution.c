@@ -29,8 +29,19 @@ int main(int argc, string argv[])
                 }
                 else
                 {
-                    printf("Key must contain 26 characters\n");
+                    printf("Key must only contain alphabetic characters\n");
                     return 1;
+                }
+            }
+            for (int i = 0; i < strlen(key); i++)
+            {
+                for (int j = i + 1; j < strlen(key); j++)
+                {
+                    if (key[i] == key[j])
+                    {
+                        printf("Key must not contain repeated characters\n");
+                        return 1;
+                    }
                 }
             }
         }
