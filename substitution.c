@@ -46,9 +46,14 @@ int main(int argc, string argv[])
         return 1;
     }
 
+    // Prompts the user for the plaintext
     getText();
+    // Uses the substitution cipher to encrypt the text
     substituteText(plainText);
+    // Prints the cipheredtext
     printf("ciphertext: %s\n", plainText);
+    // Tells that the program ran successfully
+    return 0;
 }
 
 // Function that prompts for the plaintext
