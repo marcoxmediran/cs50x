@@ -136,7 +136,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             // Corner Pixels - Bottom Left
             if (i == height-1 && j == 0)
             {
-                aveRed = (imageCopy[i][j].rgbtRed + imageCopy[i+1][j].rgbtRed + imageCopy[i][j+1].rgbtRed + imageCopy[i-1][j+1].rgbtRed) / 4.00;
+                aveRed = (imageCopy[i][j].rgbtRed + imageCopy[i-1][j].rgbtRed + imageCopy[i][j+1].rgbtRed + imageCopy[i-1][j+1].rgbtRed) / 4.00;
                 aveGreen = (imageCopy[i][j].rgbtGreen + imageCopy[i-1][j].rgbtGreen + imageCopy[i][j+1].rgbtGreen + imageCopy[i-1][j+1].rgbtGreen) / 4.00;
                 aveBlue = (imageCopy[i][j].rgbtBlue + imageCopy[i-1][j].rgbtBlue + imageCopy[i][j+1].rgbtBlue + imageCopy[i-1][j+1].rgbtBlue) / 4.00;
                 image[i][j].rgbtRed = roundf(aveRed);
