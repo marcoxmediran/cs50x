@@ -184,7 +184,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                 image[i][j].rgbtBlue = roundf(aveBlue);
             }
             // Edge Pixels - Right
-            else if (i > 0 && i < height-1 && j == width-1)
+            else if (i > 0 && i < height-1 && j < width-1)
             {
                 aveRed = (imageCopy[i][j].rgbtRed + imageCopy[i][j-1].rgbtRed + imageCopy[i-1][j-1].rgbtRed + imageCopy[i+1][j-1].rgbtRed + imageCopy[i-1][j].rgbtRed + imageCopy[i+1][j].rgbtRed) / 6.00;
                 aveGreen = (imageCopy[i][j].rgbtGreen + imageCopy[i][j-1].rgbtGreen + imageCopy[i-1][j-1].rgbtGreen + imageCopy[i+1][j-1].rgbtGreen + imageCopy[i-1][j].rgbtGreen + imageCopy[i+1][j].rgbtGreen) / 6.00;
