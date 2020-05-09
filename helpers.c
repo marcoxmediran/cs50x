@@ -106,12 +106,12 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             // Middle Pixels
             if (i > 0 && j > 0 && i < height-1 && j < width-1)
             {
-                aveRed = (imageCopy[i][j].rgbtRed + imageCopy[i-1][j].rgbtRed + imageCopy[i+1][j].rgbtRed + imageCopy[i][j-1].rgbtRed + imageCopy[i-1][j-1].rgbtRed + imageCopy[i+1][j-1].rgbtRed + imageCopy[i][j+1].rgbtRed + imageCopy[i-1][j+1].rgbtRed + imageCopy[i+1][j+1].rgbtRed) / 9;
-                aveGreen = (imageCopy[i][j].rgbtGreen + imageCopy[i-1][j].rgbtGreen + imageCopy[i+1][j].rgbtGreen + imageCopy[i][j-1].rgbtGreen + imageCopy[i-1][j-1].rgbtGreen + imageCopy[i+1][j-1].rgbtGreen + imageCopy[i][j+1].rgbtGreen + imageCopy[i-1][j+1].rgbtGreen + imageCopy[i+1][j+1].rgbtGreen) / 9;
-                aveBlue = (imageCopy[i][j].rgbtBlue + imageCopy[i-1][j].rgbtBlue + imageCopy[i+1][j].rgbtBlue + imageCopy[i][j-1].rgbtBlue + imageCopy[i-1][j-1].rgbtBlue + imageCopy[i+1][j-1].rgbtBlue + imageCopy[i][j+1].rgbtBlue + imageCopy[i-1][j+1].rgbtBlue + imageCopy[i+1][j+1].rgbtBlue) / 9;
+                aveRed = (imageCopy[i][j].rgbtRed + imageCopy[i-1][j].rgbtRed + imageCopy[i+1][j].rgbtRed + imageCopy[i][j-1].rgbtRed + imageCopy[i-1][j-1].rgbtRed + imageCopy[i+1][j-1].rgbtRed + imageCopy[i][j+1].rgbtRed + imageCopy[i-1][j+1].rgbtRed + imageCopy[i+1][j+1].rgbtRed) / 9.00;
+                aveGreen = (imageCopy[i][j].rgbtGreen + imageCopy[i-1][j].rgbtGreen + imageCopy[i+1][j].rgbtGreen + imageCopy[i][j-1].rgbtGreen + imageCopy[i-1][j-1].rgbtGreen + imageCopy[i+1][j-1].rgbtGreen + imageCopy[i][j+1].rgbtGreen + imageCopy[i-1][j+1].rgbtGreen + imageCopy[i+1][j+1].rgbtGreen) / 9.00;
+                aveBlue = (imageCopy[i][j].rgbtBlue + imageCopy[i-1][j].rgbtBlue + imageCopy[i+1][j].rgbtBlue + imageCopy[i][j-1].rgbtBlue + imageCopy[i-1][j-1].rgbtBlue + imageCopy[i+1][j-1].rgbtBlue + imageCopy[i][j+1].rgbtBlue + imageCopy[i-1][j+1].rgbtBlue + imageCopy[i+1][j+1].rgbtBlue) / 9.00;
                 image[i][j].rgbtRed = roundf(aveRed+1.0);
-                image[i][j].rgbtGreen = roundf(aveGreen+1.0);
-                image[i][j].rgbtBlue = roundf(aveBlue+1.0);
+                image[i][j].rgbtGreen = roundf(aveGreen);
+                image[i][j].rgbtBlue = roundf(aveBlue);
             }
         }
     }
