@@ -83,5 +83,37 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
 // Blur image
 void blur(int height, int width, RGBTRIPLE image[height][width])
 {
+    float aveRed = 0;
+    float aveGreen = 0;
+    float aveBlue = 0;
+
+    // Copy Original RGB Values
+    RGBTRIPLE imageCopy[height][width];
+    for (int i = 0; i < height; i++)
+    {
+        for (int j = 0; j < width; j++)
+        {
+            imageCopy[i][j].rgbtRed = image[i][j].rgbtRed;
+            imageCopy[i][j].rgbtGreen = image[i][j].rgbtGreen;
+            imageCopy[i][j].rgbtBlue = image[i][j].rgbtBlue;
+        }
+    }
+    // Blurs image
+    for (int i = 0; i < height; i++)
+    {
+        for (int j = 0; j < width; j++)
+        {
+            // Middle Pixels
+            if (i > 0 && j > 0 && i < height-1 && j < width-1)
+            {
+                aveRed = (imageCopy[i][j].rgbtRed + imageCopy[i-1][j].rgbtRed + imageCopy[i+1][j].rgbtRed + imageCopy[i][j-1].rgbtRed + imageCopy[i-1][j-1].rgbtRed + imageCopy[i+1][j-1].rgbtRed + imageCopy[i][j+1].rgbtRed + imageCopy[i-1][j+1].rgbtRed + imageCopy[i+1][j+1].rgbtRed) / 9;
+                aveGreen = (imageCopy[i][j].rgbtGreen + imageCopy[i-1][j].rgbtGreen + imageCopy[i+1][j].rgbtGreen + imageCopy[i][j-1].rgbtGreen + imageCopy[i-1][j-1].rgbtGreen + imageCopy[i+1][j-1].rgbtGreen + imageCopy[i][j+1].rgbtGreen + imageCopy[i-1][j+1].rgbtGreen + imageCopy[i+1][j+1].rgbtGreen) / 9;
+                aveBlue = (imageCopy[i][j].rgbtBlue + imageCopy[i-1][j].rgbtBlue + imageCopy[i+1][j].rgbtBlue + imageCopy[i][j-1].rgbtBlue + imageCopy[i-1][j-1].rgbtBlue + imageCopy[i+1][j-1].rgbtBlue + imageCopy[i][j+1].rgbtBlue + imageCopy[i-1][j+1].rgbtBlue + imageCopy[i+1][j+1].rgbtBlue) / 9;
+                image[i][j].rgbtRed = roundf(aveRed);
+                image[i][j].rgbtGreen = roundf(aveGreen);
+                image[i][j].rgbtBlue = roundf(aveBlue);
+            }
+        }
+    }
     return;
 }
