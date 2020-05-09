@@ -16,9 +16,9 @@ void grayscale(int height, int width, RGBTRIPLE image[height][width])
             tempBlue = image[i][j].rgbtBlue;
             float aveF = (tempRed + tempGreen + tempBlue) / 3;
             int aveI = round(aveF);
-            image[i][j].rgbtRed = aveI;
-            image[i][j].rgbtGreen = aveI;
-            image[i][j].rgbtBlue = aveI;
+            image[height][width].rgbtRed = aveI;
+            image[height][width].rgbtGreen = aveI;
+            image[height][width].rgbtBlue = aveI;
         }
     }
     return;
