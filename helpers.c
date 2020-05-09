@@ -114,7 +114,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                 image[i][j].rgbtBlue = roundf(aveBlue);
             }
             // Corner Pixels - Top Left
-            if (i == 0 && j == 0)
+            else if (i == 0 && j == 0)
             {
                 aveRed = (imageCopy[i][j].rgbtRed + imageCopy[i][j+1].rgbtRed + imageCopy[i+1][j].rgbtRed + imageCopy[i+1][j+1].rgbtRed) / 4.00;
                 aveGreen = (imageCopy[i][j].rgbtGreen + imageCopy[i][j+1].rgbtGreen + imageCopy[i+1][j].rgbtGreen + imageCopy[i+1][j+1].rgbtGreen) / 4.00;
@@ -124,7 +124,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                 image[i][j].rgbtBlue = roundf(aveBlue);
             }
             // Corner Pixels - Top Right
-            if (i == 0 && j == width-1)
+            else if (i == 0 && j == width-1)
             {
                 aveRed = (imageCopy[i][j].rgbtRed + imageCopy[i+1][j].rgbtRed + imageCopy[i][j-1].rgbtRed + imageCopy[i+1][j-1].rgbtRed) / 4.00;
                 aveGreen = (imageCopy[i][j].rgbtGreen + imageCopy[i+1][j].rgbtGreen + imageCopy[i][j-1].rgbtGreen + imageCopy[i+1][j-1].rgbtGreen) / 4.00;
@@ -134,7 +134,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                 image[i][j].rgbtBlue = roundf(aveBlue);
             }
             // Corner Pixels - Bottom Left
-            if (i == height-1 && j == 0)
+            else if (i == height-1 && j == 0)
             {
                 aveRed = (imageCopy[i][j].rgbtRed + imageCopy[i+1][j].rgbtRed + imageCopy[i][j+1].rgbtRed + imageCopy[i-1][j+1].rgbtRed) / 4.00;
                 aveGreen = (imageCopy[i][j].rgbtGreen + imageCopy[i-1][j].rgbtGreen + imageCopy[i][j+1].rgbtGreen + imageCopy[i-1][j+1].rgbtGreen) / 4.00;
@@ -144,7 +144,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                 image[i][j].rgbtBlue = roundf(aveBlue);
             }
             // Corner Pixels - Bottom Right
-            if (i == height-1 && j == width-1)
+            else if (i == height-1 && j == width-1)
             {
                 aveRed = (imageCopy[i][j].rgbtRed + imageCopy[i-1][j].rgbtRed + imageCopy[i][j-1].rgbtRed + imageCopy[i-1][j-1].rgbtRed) / 4.00;
                 aveGreen = (imageCopy[i][j].rgbtGreen + imageCopy[i-1][j].rgbtGreen + imageCopy[i][j-1].rgbtGreen + imageCopy[i-1][j-1].rgbtGreen) / 4.00;
@@ -154,11 +154,41 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                 image[i][j].rgbtBlue = roundf(aveBlue);
             }
             // Edge Pixels - Top
-            if (i == 0 && j > 0 && j < width-1)
+            else if (i == 0 && j > 0 && j < width-1)
             {
                 aveRed = (imageCopy[i][j].rgbtRed + imageCopy[i][j-1].rgbtRed + imageCopy[i][j+1].rgbtRed + imageCopy[i+1][j].rgbtRed + imageCopy[i+1][j-1].rgbtRed + imageCopy[i+1][j+1].rgbtRed) / 6.00;
                 aveGreen = (imageCopy[i][j].rgbtGreen + imageCopy[i][j-1].rgbtGreen + imageCopy[i][j+1].rgbtGreen + imageCopy[i+1][j].rgbtGreen + imageCopy[i+1][j-1].rgbtGreen + imageCopy[i+1][j+1].rgbtGreen) / 6.00;
                 aveBlue = (imageCopy[i][j].rgbtBlue + imageCopy[i][j-1].rgbtBlue + imageCopy[i][j+1].rgbtBlue + imageCopy[i+1][j].rgbtBlue + imageCopy[i+1][j-1].rgbtBlue + imageCopy[i+1][j+1].rgbtBlue) / 6.00;
+                image[i][j].rgbtRed = roundf(aveRed);
+                image[i][j].rgbtGreen = roundf(aveGreen);
+                image[i][j].rgbtBlue = roundf(aveBlue);
+            }
+            // Edge Pixels - Bottom
+            else if (i == height-1 && j > 0 && j < width-1)
+            {
+                aveRed = (imageCopy[i][j].rgbtRed + imageCopy[i][j-1].rgbtRed + imageCopy[i][j+1].rgbtRed + imageCopy[i-1][j].rgbtRed + imageCopy[i-1][j-1].rgbtRed + imageCopy[i-1][j+1].rgbtRed) / 6.00;
+                aveGreen = (imageCopy[i][j].rgbtGreen + imageCopy[i][j-1].rgbtGreen + imageCopy[i][j+1].rgbtGreen + imageCopy[i-1][j].rgbtGreen + imageCopy[i-1][j-1].rgbtGreen + imageCopy[i-1][j+1].rgbtGreen) / 6.00;
+                aveBlue = (imageCopy[i][j].rgbtBlue + imageCopy[i][j-1].rgbtBlue + imageCopy[i][j+1].rgbtBlue + imageCopy[i-1][j].rgbtBlue + imageCopy[i-1][j-1].rgbtBlue + imageCopy[i-1][j+1].rgbtBlue) / 6.00;
+                image[i][j].rgbtRed = roundf(aveRed);
+                image[i][j].rgbtGreen = roundf(aveGreen);
+                image[i][j].rgbtBlue = roundf(aveBlue);
+            }
+            // Edge Pixels - Left
+            else if (i > 0 && i < height-1 && j == 0)
+            {
+                aveRed = (imageCopy[i][j].rgbtRed + imageCopy[i][j+1].rgbtRed + imageCopy[i-1][j+1].rgbtRed + imageCopy[i+1][j+1].rgbtRed + imageCopy[i-1][j].rgbtRed + imageCopy[i+1][j].rgbtRed) / 6.00;
+                aveGreen = (imageCopy[i][j].rgbtGreen + imageCopy[i][j+1].rgbtGreen + imageCopy[i-1][j+1].rgbtGreen + imageCopy[i+1][j+1].rgbtGreen + imageCopy[i-1][j].rgbtGreen + imageCopy[i+1][j].rgbtGreen) / 6.00;
+                aveBlue = (imageCopy[i][j].rgbtBlue + imageCopy[i][j+1].rgbtBlue + imageCopy[i-1][j+1].rgbtBlue + imageCopy[i+1][j+1].rgbtBlue + imageCopy[j][j].rgbtBlue + imageCopy[i+1][j].rgbtBlue) / 6.00;
+                image[i][j].rgbtRed = roundf(aveRed);
+                image[i][j].rgbtGreen = roundf(aveGreen);
+                image[i][j].rgbtBlue = roundf(aveBlue);
+            }
+            // Edge Pixels - Bottom
+            else if (i > 0 && i < height-1 && j == width-1)
+            {
+                aveRed = (imageCopy[i][j].rgbtRed + imageCopy[i][j-1].rgbtRed + imageCopy[i-1][j-1].rgbtRed + imageCopy[i+1][j-1].rgbtRed + imageCopy[i-1][j].rgbtRed + imageCopy[i-1][j].rgbtRed) / 6.00;
+                aveGreen = (imageCopy[i][j].rgbtGreen + imageCopy[i][j-1].rgbtGreen + imageCopy[i-1][j-1].rgbtGreen + imageCopy[i+1][j-1].rgbtGreen + imageCopy[i-1][j].rgbtGreen + imageCopy[i-1][j].rgbtGreen) / 6.00;
+                aveBlue = (imageCopy[i][j].rgbtBlue + imageCopy[i][j-1].rgbtBlue + imageCopy[i-1][j-1].rgbtBlue + imageCopy[i+1][j-1].rgbtBlue + imageCopy[i-1][j].rgbtBlue + imageCopy[i-1][j].rgbtBlue) / 6.00;
                 image[i][j].rgbtRed = roundf(aveRed);
                 image[i][j].rgbtGreen = roundf(aveGreen);
                 image[i][j].rgbtBlue = roundf(aveBlue);
