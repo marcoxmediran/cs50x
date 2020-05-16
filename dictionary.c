@@ -42,11 +42,11 @@ unsigned int hash(const char *needs_hashing)
 bool check(const char *word)
 {
 
-    int len = strlen(word);
-    char lcword[len + 1];
+    // initialise lower case word
+    char lcword[LENGTH + 1];
 
     // convert to lowercase, as we need this to lookup. TODO: change from length to length of word
-    for (int i = 0, n = strlen(word); i < n; i++)
+    for (int i = 0; i < LENGTH; i++)
     {
         lcword[i] = tolower(word[i]);
     }
