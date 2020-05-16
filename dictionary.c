@@ -17,7 +17,7 @@ const int HASHTABLE_SIZE = 65536;
 // define linked list node
 typedef struct node
 {
-    char word[LENGTH+1];
+    char word[LENGTH + 1];
     struct node *next;
 } node;
 
@@ -26,11 +26,13 @@ node *hash_table[HASHTABLE_SIZE];
 
 // Returns integer hash value for a given a string
 // https://www.reddit.com/r/cs50/comments/1x6vc8/pset6_trie_vs_hashtable/cf9nlkn/
-unsigned int hash(const char* needs_hashing)
+unsigned int hash(const char *needs_hashing)
 {
     unsigned int hash = 0;
-    for (int i=0, n=strlen(needs_hashing); i<n; i++)
+    for (int i = 0, n = strlen(needs_hashing); i < n; i++)
+    {
         hash = (hash << 2) ^ needs_hashing[i];
+    }
     return hash % HASHTABLE_SIZE;
 }
 
@@ -40,11 +42,11 @@ unsigned int hash(const char* needs_hashing)
 bool check(const char *word)
 {
 
-    // initialise lower case word
-    char lcword[LENGTH+1];
+    int len = strlen(word);
+    char lcword[len + 1];
 
     // convert to lowercase, as we need this to lookup. TODO: change from length to length of word
-    for (int i = 0; i < LENGTH; i++)
+    for (int i = 0, n = strlen(word); i < n; i++)
     {
         lcword[i] = tolower(word[i]);
     }
@@ -72,7 +74,7 @@ bool check(const char *word)
 bool load(const char *dictionary)
 {
     // initialise word
-    char word[LENGTH+1];
+    char word[LENGTH + 1];
 
     // open dictionary
     FILE *dicptr = fopen(dictionary, "r");
