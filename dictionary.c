@@ -46,7 +46,7 @@ bool check(const char *word)
     char lcword[LENGTH + 1];
 
     // convert to lowercase, as we need this to lookup. TODO: change from length to length of word
-    for (int i = 0; i < LENGTH; i++)
+    for (int i = 0; i < LENGTH + 1; i++)
     {
         lcword[i] = tolower(word[i]);
     }
