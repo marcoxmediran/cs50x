@@ -15,12 +15,12 @@ house = argv[1]
 res = db.execute("SELECT first, middle, last, birth FROM students WHERE house = ? ORDER BY last ASC, first ASC", house)
 for row in res:
     first = row["first"].strip()
-    middle = row["middle"].strip()
     last = row["last"].strip()
     birth = str(row["birth"]).strip()
-    if (middle == ""):
+    if row["middle"] == None:
         print(f"{first} {last}, born {birth}")
     else:
+        middle = row["middle"].strip()
         print(f"{first} {middle} {last}, born {birth}")
 # Program ran successfuly
 exit(0)

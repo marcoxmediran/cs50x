@@ -21,7 +21,7 @@ with open(argv[1], "r") as input:
         # make the middle name blank
         if len(fName) == 2:
             fName.append(fName[1])
-            fName[1] = ""
+            fName[1] = None
         # Inserts data into students.db
         db.execute("INSERT INTO students (first, middle, last, house, birth) VALUES (?, ?, ?, ?, ?)",
                    fName[0], fName[1], fName[2], row["house"], row["birth"])
