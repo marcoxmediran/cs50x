@@ -25,7 +25,7 @@ These are the improvements I made in the game:
 4. Added the ability to crouch.
 5. Falling inside the pits or gaps between blocks causes the player to respawn to it's first location.
 
-I would like to talk Sir David Malan and the CS50 staff for the wonderful adventure and challenges they gave me within this course.
+I would like to tank Sir David Malan and the CS50 staff for the wonderful adventure and challenges they gave me within this course.
 This course inspired me to take Computer Science when I enter college.
 
 This is all about my Final Project!
