@@ -17,17 +17,17 @@ int main(void)
     {
         end = get_int("End size: ");
     }
-    while (end < start || end == start);
+    while (end < start);
 
     // Calculate number of years until we reach threshold
     int years = 0;
-    do
+    while (start < end)
     {
         int toAdd = (float)(start / 3) - (float)(start / 4);
         start += toAdd;
         years++;
     }
-    while (start < end);
+    
     // Print number of years
     printf("Years: %i\n", years);
 
