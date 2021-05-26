@@ -28,7 +28,7 @@ void mario(int h)
     {
         printSpaces(h, rows);
         printHashes(h, rows);
-        printf(" ");
+        printf("  ");
         printHashes(h, rows);
         printf("\n");
     }
