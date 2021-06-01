@@ -52,17 +52,16 @@ string luhn(long card, int length)
     cardDouble /= 10;
     for (int i = 0; i < doubleLength; i++)
     {
-       int toDouble = 2 * (cardDouble % 10);
-       if (toDouble >= 10)
-       {
-           toDouble = toDouble % 10 + 1;
-       }
-       cardDouble /= 100;
-       validator += toDouble;
+        int toDouble = 2 * (cardDouble % 10);
+        if (toDouble >= 10)
+        {
+            toDouble = toDouble % 10 + 1;
+        }
+        cardDouble /= 100;
+        validator += toDouble;
     }
-
     // If card is valid, indentify card type
-    if (validator % 2 == 0)
+    if (validator % 10 == 0)
     {
         // Gets 2 starting numbers from the left
         int startNums = card / (long)pow(10, length - 2);
