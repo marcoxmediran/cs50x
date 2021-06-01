@@ -13,6 +13,7 @@ int main(void)
     
     // Count digits
     int length = getLength(card);
+    // printf("(LOGS) length: %i\n", length);
 
     // Program ran successfuly
     printf("%s\n", luhn(card, length));
@@ -34,7 +35,7 @@ string luhn(long card, int length)
     
     // Applies algorithm on digits what will not be doubled 
     int singleLength = length / 2;
-    if (singleLength % 2 != 0)
+    if (length % 2 != 0)
     {
         singleLength++;
     }
@@ -44,6 +45,7 @@ string luhn(long card, int length)
         int toAdd = cardSingle % 10;
         cardSingle /= 100;
         validator += toAdd;
+        // printf("(LOGS) toAdd: %i\n", toAdd);
     }
 
     // Applies algorithm on digits that will be doubled
@@ -59,7 +61,9 @@ string luhn(long card, int length)
         }
         cardDouble /= 100;
         validator += toDouble;
+        // printf("(LOGS) toDouble: %i\n", toDouble);
     }
+    // printf("(LOGS): validator: %i\n", validator);
     // If card is valid, indentify card type
     if (validator % 10 == 0)
     {
