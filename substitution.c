@@ -22,8 +22,10 @@ int main(int argc, string argv[])
         return 1;
     }
     // Does checks if each character in the key is an alphabetic character
+    // Also checks if there are no duplicate characters
     else
     {
+        int checker = 0;
         for (int i = 0, length = strlen(key); i < length; i++)
         {
             if (!isalpha(key[i]))
@@ -34,7 +36,13 @@ int main(int argc, string argv[])
             else
             {
                 key[i] = toupper(key[i]);
+                checker += (int) key[i];
             }
+        }
+        if (checker != 2015)
+        {
+            printf("Usage: ./substitution key\n");
+            return 1;
         }
     }
     // Accepts input from user then prints the encrypted input
