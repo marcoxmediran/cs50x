@@ -1,11 +1,11 @@
 sort1 uses: Bubble
 
-How do you know?: It takes the most time in sorted numbers
+How do you know?: It performs just slower than merge sort
 
-sort2 uses: Selection
+sort2 uses: Merge
 
-How do you know?: It performs well but no as fast as merge sort on reversed numbers
+How do you know?: It performs the fastest
 
 sort3 uses: Merge
 
-How do you know?: It performs almost all the same in random, reversed, and sorted with the same value of n
+How do you know?: It performs the lowest
