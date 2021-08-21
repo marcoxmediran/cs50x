@@ -1,8 +1,8 @@
-sort1 uses: Selection
+sort1 uses: Bubble
 
 How do you know?: It takes the most time in sorted numbers
 
-sort2 uses: Bubble
+sort2 uses: Selection
 
 How do you know?: It performs well but no as fast as merge sort on reversed numbers
 
