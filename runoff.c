@@ -161,7 +161,7 @@ void tabulate(void)
 bool print_winner(void)
 {
     // Calculates minimum votes required to win
-    int majority = (candidate_count / 2) + 1;
+    int majority = (voter_count / 2) + 1;
     for (int i = 0; i < candidate_count; i++)
     {
         // Prints all candidates with winning number of votes
